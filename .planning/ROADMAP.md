@@ -79,11 +79,11 @@ Plans:
   2. Manager sees revenue breakdown by category (slip fees, fuel, amenities) with charts
   3. Manager can search guest history and identify repeat visitors and past stays
   4. Manager can configure per-night slip rates by size category, amenity fees, and fuel price per gallon
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md — Occupancy overview, revenue breakdown with CSS bar charts, and searchable guest history
+- [ ] 04-02-PLAN.md — Pricing configuration with inline editing and server action persistence
 
 ## Progress
 
