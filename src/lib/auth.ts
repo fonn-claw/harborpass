@@ -7,7 +7,10 @@ import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
 
-export async function login(formData: FormData) {
+export async function login(
+  _prevState: { error: string } | null,
+  formData: FormData
+) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
 

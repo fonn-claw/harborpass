@@ -1,4 +1,11 @@
-export function TopBar() {
+import { UserMenu } from "./user-menu";
+
+interface TopBarProps {
+  userName: string;
+  actions?: React.ReactNode;
+}
+
+export function TopBar({ userName, actions }: TopBarProps) {
   return (
     <header className="bg-navy text-white h-16 flex items-center justify-between px-6">
       <div className="flex items-center gap-4">
@@ -13,8 +20,8 @@ export function TopBar() {
         </span>
       </div>
       <div className="flex items-center gap-4">
-        {/* Action area: search + check-in button added in Phase 2 */}
-        {/* User menu: wired in Plan 02 with logout */}
+        {actions}
+        <UserMenu userName={userName} />
       </div>
     </header>
   );
