@@ -29,12 +29,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Login screen displays hero-marina.png as full-bleed background with correct typography and color palette
   4. Database contains 20 transient slips with dimensions, 12 occupied stays, 3 arriving today, 2 departing, 3 demo accounts, and 2 months of guest history
   5. Application renders with dispatch board layout (no sidebar, no tabs), correct fonts (DM Sans, Inter, JetBrains Mono), and design spec colors
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md — Scaffold Next.js 15, Tailwind v4 theme, Drizzle schema, shadcn/ui, top bar layout
+- [ ] 01-02-PLAN.md — Authentication (iron-session), login page, role-based routing, placeholder pages
+- [ ] 01-03-PLAN.md — Comprehensive seed data (20 slips, 3 accounts, stays, amenities, 2-month history)
 
 ### Phase 2: Dispatch Board & Check-In
 **Goal**: Staff can see the full marina status at a glance and check in a transient boater in under 60 seconds
