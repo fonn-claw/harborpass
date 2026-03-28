@@ -69,7 +69,7 @@ export function GuestCard({
   const handleClick = () => {
     if (variant === "arriving") onCheckIn?.(stay);
     else if (variant === "checked_in") onViewStay?.(stay);
-    else onSettle?.(stay);
+    else onViewStay?.(stay); // Departing: card click opens detail, Settle button handles settlement
   };
 
   const actionLabel =
@@ -157,7 +157,11 @@ export function GuestCard({
             className={`shrink-0 ${actionColorClass}`}
             onClick={(e) => {
               e.stopPropagation();
-              handleClick();
+              if (variant === "departing") {
+                onSettle?.(stay);
+              } else {
+                handleClick();
+              }
             }}
           >
             {actionLabel}

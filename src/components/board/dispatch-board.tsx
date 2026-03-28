@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
 import { BoardColumn } from "./board-column";
 import { DockStrip } from "./dock-strip";
 import { CheckInWizard } from "@/components/check-in/check-in-wizard";
+import { GuestDetailPanel } from "./guest-detail-panel";
 import { toast } from "sonner";
 import type { BoardData, SlipWithStay } from "@/lib/queries";
 
@@ -18,6 +19,13 @@ export function DispatchBoard({ data, slips }: DispatchBoardProps) {
   const [wizardOpen, setWizardOpen] = useState(false);
   const [selectedStay, setSelectedStay] = useState<StayData | null>(null);
   const [preSelectedSlipId, setPreSelectedSlipId] = useState<number | null>(null);
+  const [detailStayId, setDetailStayId] = useState<number | null>(null);
+
+  // Flatten all stays for the detail panel
+  const allStays = useMemo(
+    () => [...data.arriving, ...data.checkedIn, ...data.departingToday],
+    [data]
+  );
 
   // Listen for top bar "Check In" button custom event
   useEffect(() => {
@@ -56,21 +64,20 @@ export function DispatchBoard({ data, slips }: DispatchBoardProps) {
         setSelectedStay(null);
         setPreSelectedSlipId(slip.id);
         setWizardOpen(true);
-      } else {
-        // Occupied/departing slips -- placeholder for future detail panel
-        toast("Guest detail coming in Phase 3", {
-          description: `${slip.name} - ${slip.status === "occupied" ? "Occupied" : slip.status === "departing_today" ? "Departing" : slip.status}`,
-        });
+      } else if (slip.status === "occupied" || slip.status === "departing_today") {
+        // Find the stay associated with this slip
+        const matchedStay = allStays.find((s) => s.slip?.id === slip.id);
+        if (matchedStay) {
+          setDetailStayId(matchedStay.id);
+        }
       }
     },
     []
   );
 
-  // Placeholders for Phase 3
+  // Open guest detail slide-over
   const handleViewStay = useCallback((stay: StayData) => {
-    toast("Guest detail coming soon", {
-      description: `${stay.guest.name} - ${stay.guest.vesselName}`,
-    });
+    setDetailStayId(stay.id);
   }, []);
 
   const handleSettle = useCallback((stay: StayData) => {
@@ -136,8 +143,19 @@ export function DispatchBoard({ data, slips }: DispatchBoardProps) {
           stays={data.departingToday}
           variant="departing"
           onSettle={handleSettle}
+          onViewStay={handleViewStay}
         />
       </div>
+
+      {/* Guest detail slide-over */}
+      <GuestDetailPanel
+        stayId={detailStayId}
+        stays={allStays}
+        open={detailStayId !== null}
+        onOpenChange={(open) => {
+          if (!open) setDetailStayId(null);
+        }}
+      />
 
       {/* Check-in wizard */}
       <CheckInWizard
