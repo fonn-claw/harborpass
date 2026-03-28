@@ -12,11 +12,12 @@ Dock staff can check in a transient boater — assign a slip, generate credentia
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Role-based authentication (staff, manager, guest) — Phase 1
+- ✓ Realistic demo data (Sunset Harbor Marina, busy Friday in summer) — Phase 1
 
 ### Active
 
-- [ ] Role-based authentication (staff, manager, guest)
+- [ ] Dispatch board with three swim lanes (Arriving, Checked In, Departing)
 - [ ] Dispatch board with three swim lanes (Arriving, Checked In, Departing)
 - [ ] Visual dock strip showing slip status at a glance
 - [ ] 3-step check-in wizard (guest info → slip assignment → credentials)
@@ -69,4 +70,4 @@ Dock staff can check in a transient boater — assign a slip, generate credentia
 | Single-marina architecture | Keeps schema simple, no tenant isolation needed | — Pending |
 
 ---
-*Last updated: 2026-03-28 after initialization*
+*Last updated: 2026-03-28 after Phase 1 completion*
