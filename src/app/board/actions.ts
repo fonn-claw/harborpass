@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/db";
-import { guests, stays, slips, pricing } from "@/db/schema";
+import { guests, stays, slips, pricing, amenityUsage, charges } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { addDays } from "date-fns";
@@ -135,5 +135,183 @@ export async function checkInGuest(data: CheckInFormData): Promise<CheckInResult
       success: false,
       error: err instanceof Error ? err.message : "Check-in failed",
     };
+  }
+}
+
+// ---- Amenity Logging ----
+
+type AmenityInput =
+  | { type: "shower"; stayId: number }
+  | { type: "fuel"; stayId: number; gallons: number; fuelType: "diesel" | "gas" }
+  | { type: "shore_power"; stayId: number; kWh: number }
+  | { type: "pump_out"; stayId: number }
+  | { type: "laundry"; stayId: number };
+
+interface AmenityResult {
+  success: boolean;
+  message: string;
+}
+
+export async function logAmenity(input: AmenityInput): Promise<AmenityResult> {
+  try {
+    // Load all pricing rows once
+    const allPricing = await db.select().from(pricing);
+    function findPrice(name: string, fallback: number): number {
+      const row = allPricing.find((p) => p.name === name);
+      return row ? row.rate : fallback;
+    }
+
+    if (input.type === "shower") {
+      // Get current stay for shower token tracking
+      const [stay] = await db
+        .select()
+        .from(stays)
+        .where(eq(stays.id, input.stayId))
+        .limit(1);
+
+      if (!stay) return { success: false, message: "Stay not found" };
+
+      const isFree = stay.showerTokensUsed < stay.showerTokens;
+      const showerPrice = findPrice("Shower Token", 300);
+      const totalAmount = isFree ? 0 : showerPrice;
+
+      // Increment showerTokensUsed
+      await db
+        .update(stays)
+        .set({ showerTokensUsed: stay.showerTokensUsed + 1 })
+        .where(eq(stays.id, input.stayId));
+
+      // Create amenity usage
+      await db.insert(amenityUsage).values({
+        stayId: input.stayId,
+        type: "shower",
+        quantity: "1",
+        unitPrice: showerPrice,
+        totalAmount,
+        fuelType: null,
+      });
+
+      // Create charge only if not free
+      if (totalAmount > 0) {
+        await db.insert(charges).values({
+          stayId: input.stayId,
+          description: "Shower token (paid)",
+          category: "amenity",
+          amount: totalAmount,
+        });
+      }
+
+      revalidatePath("/board");
+      return {
+        success: true,
+        message: isFree
+          ? `Shower (included token ${stay.showerTokensUsed + 1}/${stay.showerTokens})`
+          : "Shower token (paid $3.00)",
+      };
+    }
+
+    if (input.type === "fuel") {
+      const fuelName = input.fuelType === "diesel" ? "Diesel" : "Gas";
+      const unitPrice = findPrice(fuelName, input.fuelType === "diesel" ? 549 : 429);
+      const totalAmount = Math.round(unitPrice * input.gallons);
+
+      await db.insert(amenityUsage).values({
+        stayId: input.stayId,
+        type: "fuel",
+        quantity: String(input.gallons),
+        unitPrice,
+        totalAmount,
+        fuelType: input.fuelType,
+      });
+
+      await db.insert(charges).values({
+        stayId: input.stayId,
+        description: `${fuelName} fuel (${input.gallons} gal)`,
+        category: "fuel",
+        amount: totalAmount,
+      });
+
+      revalidatePath("/board");
+      return {
+        success: true,
+        message: `${input.gallons} gal ${fuelName.toLowerCase()} logged`,
+      };
+    }
+
+    if (input.type === "shore_power") {
+      // Per CONTEXT.md: $0.12/kWh (12 cents)
+      const unitPrice = 12;
+      const totalAmount = Math.round(unitPrice * input.kWh);
+
+      await db.insert(amenityUsage).values({
+        stayId: input.stayId,
+        type: "shore_power",
+        quantity: String(input.kWh),
+        unitPrice,
+        totalAmount,
+        fuelType: null,
+      });
+
+      await db.insert(charges).values({
+        stayId: input.stayId,
+        description: `Shore power (${input.kWh} kWh)`,
+        category: "amenity",
+        amount: totalAmount,
+      });
+
+      revalidatePath("/board");
+      return { success: true, message: `${input.kWh} kWh shore power logged` };
+    }
+
+    if (input.type === "pump_out") {
+      const unitPrice = findPrice("Pump-out", 1500);
+
+      await db.insert(amenityUsage).values({
+        stayId: input.stayId,
+        type: "pump_out",
+        quantity: "1",
+        unitPrice,
+        totalAmount: unitPrice,
+        fuelType: null,
+      });
+
+      await db.insert(charges).values({
+        stayId: input.stayId,
+        description: "Pump-out service",
+        category: "amenity",
+        amount: unitPrice,
+      });
+
+      revalidatePath("/board");
+      return { success: true, message: "Pump-out logged" };
+    }
+
+    if (input.type === "laundry") {
+      const unitPrice = findPrice("Laundry Token", 500);
+
+      await db.insert(amenityUsage).values({
+        stayId: input.stayId,
+        type: "laundry",
+        quantity: "1",
+        unitPrice,
+        totalAmount: unitPrice,
+        fuelType: null,
+      });
+
+      await db.insert(charges).values({
+        stayId: input.stayId,
+        description: "Laundry token",
+        category: "amenity",
+        amount: unitPrice,
+      });
+
+      revalidatePath("/board");
+      return { success: true, message: "Laundry logged" };
+    }
+
+    return { success: false, message: "Unknown amenity type" };
+  } catch (err) {
+    console.error("Failed to log amenity:", err);
+    return { success: false, message: "Failed to log amenity" };
   }
 }

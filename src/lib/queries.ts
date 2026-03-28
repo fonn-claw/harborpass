@@ -100,6 +100,22 @@ export async function getAllSlips() {
 
 export type SlipWithStay = Awaited<ReturnType<typeof getAllSlips>>[number];
 
+export async function getStayDetail(stayId: number) {
+  return db.query.stays.findFirst({
+    where: eq(stays.id, stayId),
+    with: {
+      guest: true,
+      slip: true,
+      amenityUsages: {
+        orderBy: (au, { desc }) => [desc(au.createdAt)],
+      },
+      charges: {
+        orderBy: (ch, { desc }) => [desc(ch.createdAt)],
+      },
+    },
+  });
+}
+
 export async function getAvailableSlips() {
   return db.query.slips.findMany({
     where: eq(slips.status, "available"),
