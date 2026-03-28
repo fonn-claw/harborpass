@@ -1,7 +1,7 @@
 import { db } from "@/db";
 import { stays, slips, users, guests } from "@/db/schema";
 import { eq, and, or, gte, lte } from "drizzle-orm";
-import { startOfDay, endOfDay } from "date-fns";
+import { startOfDay, endOfDay, differenceInCalendarDays } from "date-fns";
 
 // ---- Types ----
 
@@ -115,6 +115,28 @@ export async function getStayDetail(stayId: number) {
     },
   });
 }
+
+export async function getSettlementData(stayId: number) {
+  const stay = await db.query.stays.findFirst({
+    where: eq(stays.id, stayId),
+    with: {
+      guest: true,
+      slip: true,
+      charges: {
+        orderBy: (ch, { asc }) => [asc(ch.createdAt)],
+      },
+    },
+  });
+
+  if (!stay) return null;
+
+  const nightCount = differenceInCalendarDays(new Date(), stay.checkIn);
+  const totalAmount = stay.charges.reduce((sum, ch) => sum + ch.amount, 0);
+
+  return { ...stay, nightCount, totalAmount };
+}
+
+export type SettlementData = NonNullable<Awaited<ReturnType<typeof getSettlementData>>>;
 
 export async function getAvailableSlips() {
   return db.query.slips.findMany({

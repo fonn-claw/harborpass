@@ -138,6 +138,51 @@ export async function checkInGuest(data: CheckInFormData): Promise<CheckInResult
   }
 }
 
+// ---- Settlement ----
+
+interface SettleResult {
+  success: boolean;
+  error?: string;
+}
+
+export async function settleAccount(stayId: number): Promise<SettleResult> {
+  try {
+    // Step 1: Get the stay to find slipId
+    const [stay] = await db
+      .select()
+      .from(stays)
+      .where(eq(stays.id, stayId))
+      .limit(1);
+
+    if (!stay) return { success: false, error: "Stay not found" };
+
+    // Step 2: Update stay to checked_out
+    await db
+      .update(stays)
+      .set({ status: "checked_out", checkOut: new Date() })
+      .where(eq(stays.id, stayId));
+
+    // Step 3: Release slip
+    if (stay.slipId) {
+      await db
+        .update(slips)
+        .set({ status: "available" })
+        .where(eq(slips.id, stay.slipId));
+    }
+
+    // Step 4: Refresh board
+    revalidatePath("/board");
+
+    return { success: true };
+  } catch (err) {
+    console.error("Settlement failed:", err);
+    return {
+      success: false,
+      error: err instanceof Error ? err.message : "Settlement failed",
+    };
+  }
+}
+
 // ---- Amenity Logging ----
 
 type AmenityInput =
