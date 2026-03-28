@@ -84,15 +84,13 @@ export const stays = pgTable("stays", {
   guestId: integer("guest_id")
     .references(() => guests.id)
     .notNull(),
-  slipId: integer("slip_id")
-    .references(() => slips.id)
-    .notNull(),
+  slipId: integer("slip_id").references(() => slips.id),
   checkIn: timestamp("check_in").notNull(),
   checkOut: timestamp("check_out"),
   expectedDeparture: timestamp("expected_departure").notNull(),
   status: stayStatusEnum("status").default("reserved").notNull(),
-  gateCode: varchar("gate_code", { length: 6 }).notNull(),
-  wifiPassword: varchar("wifi_password", { length: 50 }).notNull(),
+  gateCode: varchar("gate_code", { length: 6 }),
+  wifiPassword: varchar("wifi_password", { length: 50 }),
   showerTokens: integer("shower_tokens").default(3).notNull(),
   showerTokensUsed: integer("shower_tokens_used").default(0).notNull(),
   nightlyRate: integer("nightly_rate").notNull(), // cents
