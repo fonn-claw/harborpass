@@ -1,7 +1,7 @@
 import { db } from "@/db";
-import { stays, slips, users, guests } from "@/db/schema";
-import { eq, and, or, gte, lte } from "drizzle-orm";
-import { startOfDay, endOfDay, differenceInCalendarDays } from "date-fns";
+import { stays, slips, users, guests, charges } from "@/db/schema";
+import { eq, and, or, gte, lte, sql, desc } from "drizzle-orm";
+import { startOfDay, endOfDay, differenceInCalendarDays, startOfMonth } from "date-fns";
 
 // ---- Types ----
 
@@ -149,6 +149,130 @@ export async function getAvailableSlips() {
 }
 
 // ---- Guest Portal ----
+
+// ---- Manager Queries ----
+
+export interface OccupancyStats {
+  occupied: number;
+  available: number;
+  departingToday: number;
+  maintenance: number;
+  total: number;
+}
+
+export async function getOccupancyStats(): Promise<OccupancyStats> {
+  const rows = await db
+    .select({
+      status: slips.status,
+      count: sql<number>`count(*)::int`,
+    })
+    .from(slips)
+    .groupBy(slips.status);
+
+  const stats: OccupancyStats = {
+    occupied: 0,
+    available: 0,
+    departingToday: 0,
+    maintenance: 0,
+    total: 20,
+  };
+
+  for (const row of rows) {
+    switch (row.status) {
+      case "occupied":
+        stats.occupied = row.count;
+        break;
+      case "available":
+        stats.available = row.count;
+        break;
+      case "departing_today":
+        stats.departingToday = row.count;
+        break;
+      case "maintenance":
+        stats.maintenance = row.count;
+        break;
+    }
+  }
+
+  return stats;
+}
+
+export interface RevenueBreakdown {
+  categories: { category: string; total: number }[];
+  grandTotal: number;
+}
+
+export async function getRevenueBreakdown(): Promise<RevenueBreakdown> {
+  const monthStart = startOfMonth(new Date());
+
+  const rows = await db
+    .select({
+      category: charges.category,
+      total: sql<number>`sum(${charges.amount})::int`,
+    })
+    .from(charges)
+    .where(gte(charges.createdAt, monthStart))
+    .groupBy(charges.category)
+    .orderBy(sql`sum(${charges.amount}) desc`);
+
+  const grandTotal = rows.reduce((sum, r) => sum + r.total, 0);
+
+  return { categories: rows, grandTotal };
+}
+
+export interface GuestHistoryEntry {
+  stayId: number;
+  guestId: number;
+  guestName: string;
+  vesselName: string;
+  vesselLoa: number;
+  slipName: string | null;
+  checkIn: Date;
+  checkOut: Date | null;
+  status: string;
+  totalCharges: number;
+  stayCount: number;
+  charges: { description: string; category: string; amount: number; createdAt: Date }[];
+}
+
+export async function getGuestHistory(): Promise<GuestHistoryEntry[]> {
+  const allStays = await db.query.stays.findMany({
+    with: {
+      guest: true,
+      slip: true,
+      charges: {
+        orderBy: (ch, { asc }) => [asc(ch.createdAt)],
+      },
+    },
+    orderBy: (s, { desc }) => [desc(s.checkIn)],
+  });
+
+  // Count stays per guest
+  const stayCountMap = new Map<number, number>();
+  for (const s of allStays) {
+    stayCountMap.set(s.guestId, (stayCountMap.get(s.guestId) || 0) + 1);
+  }
+
+  return allStays.map((s) => ({
+    stayId: s.id,
+    guestId: s.guestId,
+    guestName: s.guest.name,
+    vesselName: s.guest.vesselName,
+    vesselLoa: s.guest.vesselLoa,
+    slipName: s.slip?.name ?? null,
+    checkIn: s.checkIn,
+    checkOut: s.checkOut,
+    status: s.status,
+    totalCharges: s.charges.reduce((sum, ch) => sum + ch.amount, 0),
+    stayCount: stayCountMap.get(s.guestId) || 1,
+    charges: s.charges.map((ch) => ({
+      description: ch.description,
+      category: ch.category,
+      amount: ch.amount,
+      createdAt: ch.createdAt,
+    })),
+  }));
+}
 
 export async function getGuestPortalData(userId: number) {
   // Step 1: Get user email
