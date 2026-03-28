@@ -88,7 +88,7 @@ export function GuestCard({
 
   return (
     <div
-      className="flex rounded-lg border border-fog bg-white overflow-hidden cursor-pointer hover:shadow-sm transition-shadow"
+      className="flex rounded-lg border border-fog bg-white overflow-hidden cursor-pointer hover:shadow-md transition-shadow duration-150"
       onClick={handleClick}
     >
       {/* Left color stripe */}

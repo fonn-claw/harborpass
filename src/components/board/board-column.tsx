@@ -38,7 +38,14 @@ export function BoardColumn({
       {/* Scrollable card list */}
       <div className="flex flex-col gap-2 px-2 pb-4 overflow-y-auto" style={{ maxHeight: "calc(100vh - 220px)" }}>
         {stays.length === 0 ? (
-          <div className="flex items-center justify-center py-8">
+          <div className="flex flex-col items-center justify-center py-8 gap-3">
+            <img
+              src="/assets/empty-board.svg"
+              alt=""
+              width={120}
+              height={80}
+              className="opacity-40"
+            />
             <span className="text-sm text-slate">No guests</span>
           </div>
         ) : (

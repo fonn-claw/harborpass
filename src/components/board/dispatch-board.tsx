@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { BoardColumn } from "./board-column";
 import { DockStrip } from "./dock-strip";
 import { CheckInWizard } from "@/components/check-in/check-in-wizard";
+import { toast } from "sonner";
 import type { BoardData, SlipWithStay } from "@/lib/queries";
 
 type StayData = BoardData["arriving"][number];
@@ -17,6 +18,17 @@ export function DispatchBoard({ data, slips }: DispatchBoardProps) {
   const [wizardOpen, setWizardOpen] = useState(false);
   const [selectedStay, setSelectedStay] = useState<StayData | null>(null);
   const [preSelectedSlipId, setPreSelectedSlipId] = useState<number | null>(null);
+
+  // Listen for top bar "Check In" button custom event
+  useEffect(() => {
+    const handler = () => {
+      setSelectedStay(null);
+      setPreSelectedSlipId(null);
+      setWizardOpen(true);
+    };
+    window.addEventListener("open-checkin-wizard", handler);
+    return () => window.removeEventListener("open-checkin-wizard", handler);
+  }, []);
 
   // Derive available slips from props
   const availableSlips = slips
@@ -46,19 +58,25 @@ export function DispatchBoard({ data, slips }: DispatchBoardProps) {
         setWizardOpen(true);
       } else {
         // Occupied/departing slips -- placeholder for future detail panel
-        console.log("Slip clicked:", slip.name, slip.status);
+        toast("Guest detail coming in Phase 3", {
+          description: `${slip.name} - ${slip.status === "occupied" ? "Occupied" : slip.status === "departing_today" ? "Departing" : slip.status}`,
+        });
       }
     },
     []
   );
 
-  // Placeholders for Plan 03
+  // Placeholders for Phase 3
   const handleViewStay = useCallback((stay: StayData) => {
-    console.log("View stay:", stay.id, stay.guest.name);
+    toast("Guest detail coming soon", {
+      description: `${stay.guest.name} - ${stay.guest.vesselName}`,
+    });
   }, []);
 
   const handleSettle = useCallback((stay: StayData) => {
-    console.log("Settle:", stay.id, stay.guest.name);
+    toast("Settlement coming in Phase 3", {
+      description: `${stay.guest.name} - ${stay.guest.vesselName}`,
+    });
   }, []);
 
   // Close wizard and reset state

@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/session";
 import { TopBar } from "@/components/layout/top-bar";
+import { CheckInTrigger } from "@/components/board/check-in-trigger";
 
 export default async function BoardLayout({
   children,
@@ -14,7 +15,7 @@ export default async function BoardLayout({
 
   return (
     <>
-      <TopBar userName={session.name} />
+      <TopBar userName={session.name} actions={<CheckInTrigger />} />
       <main className="bg-sand min-h-screen">{children}</main>
     </>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState, useEffect, useCallback } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -52,10 +53,41 @@ function slipTooltip(slip: SlipWithStay): string {
 }
 
 export function DockStrip({ slips, onSlipClick }: DockStripProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [showLeftFade, setShowLeftFade] = useState(false);
+  const [showRightFade, setShowRightFade] = useState(false);
+
+  const checkOverflow = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setShowLeftFade(el.scrollLeft > 4);
+    setShowRightFade(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    checkOverflow();
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", checkOverflow, { passive: true });
+    window.addEventListener("resize", checkOverflow);
+    return () => {
+      el.removeEventListener("scroll", checkOverflow);
+      window.removeEventListener("resize", checkOverflow);
+    };
+  }, [checkOverflow]);
+
   return (
     <TooltipProvider delay={200}>
-      <div className="bg-white border-b border-fog px-4 py-3">
-        <div className="flex items-center gap-1 overflow-x-auto">
+      <div className="bg-white border-b border-fog px-4 py-3 relative">
+        {/* Left overflow fade */}
+        {showLeftFade && (
+          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        )}
+
+        <div
+          ref={scrollRef}
+          className="flex items-center gap-1 overflow-x-auto scrollbar-hide"
+        >
           {slips.map((slip) => (
             <Tooltip key={slip.id}>
               <TooltipTrigger
@@ -70,6 +102,11 @@ export function DockStrip({ slips, onSlipClick }: DockStripProps) {
             </Tooltip>
           ))}
         </div>
+
+        {/* Right overflow fade */}
+        {showRightFade && (
+          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        )}
       </div>
     </TooltipProvider>
   );

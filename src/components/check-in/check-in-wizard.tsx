@@ -13,6 +13,7 @@ import { checkInSchema, type CheckInFormData } from "@/lib/schemas";
 import { StepGuestInfo } from "./step-guest-info";
 import { StepSlipSelect } from "./step-slip-select";
 import { StepCredentials } from "./step-credentials";
+import { toast } from "sonner";
 import { checkInGuest } from "@/app/board/actions";
 
 interface SlipData {
@@ -172,11 +173,12 @@ export function CheckInWizard({
           wifiPassword: result.wifiPassword!,
           showerTokens: result.showerTokens!,
         });
+        toast.success("Guest checked in successfully");
       } else {
-        alert(result.error ?? "Check-in failed. Please try again.");
+        toast.error(`Check-in failed: ${result.error ?? "Unknown error"}`);
       }
     } catch {
-      alert("An unexpected error occurred.");
+      toast.error("An unexpected error occurred during check-in");
     } finally {
       setIsSubmitting(false);
     }
