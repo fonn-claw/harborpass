@@ -1,5 +1,5 @@
 import { db } from "@/db";
-import { stays, slips } from "@/db/schema";
+import { stays, slips, users, guests } from "@/db/schema";
 import { eq, and, or, gte, lte } from "drizzle-orm";
 import { startOfDay, endOfDay } from "date-fns";
 
@@ -105,4 +105,40 @@ export async function getAvailableSlips() {
     where: eq(slips.status, "available"),
     orderBy: (slips, { asc }) => [asc(slips.name)],
   });
+}
+
+// ---- Guest Portal ----
+
+export async function getGuestPortalData(userId: number) {
+  // Step 1: Get user email
+  const [user] = await db
+    .select()
+    .from(users)
+    .where(eq(users.id, userId))
+    .limit(1);
+  if (!user) return null;
+
+  // Step 2: Find guest by email
+  const [guest] = await db
+    .select()
+    .from(guests)
+    .where(eq(guests.email, user.email))
+    .limit(1);
+  if (!guest) return null;
+
+  // Step 3: Find active stay with relations
+  const stay = await db.query.stays.findFirst({
+    where: and(eq(stays.guestId, guest.id), eq(stays.status, "checked_in")),
+    with: {
+      slip: true,
+      amenityUsages: {
+        orderBy: (au, { desc }) => [desc(au.createdAt)],
+      },
+      charges: {
+        orderBy: (c, { asc }) => [asc(c.createdAt)],
+      },
+    },
+  });
+
+  return stay ? { guest, ...stay } : null;
 }
