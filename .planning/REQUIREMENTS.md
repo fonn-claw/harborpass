@@ -18,7 +18,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **SLIP-01**: System stores 20 transient slips with dimensions (max LOA, max beam, water depth)
 - [x] **SLIP-02**: Each slip has a status (available, occupied, departing-today, maintenance)
-- [ ] **SLIP-03**: Slip assignment filters by vessel dimensions (LOA, beam, draft must fit)
+- [x] **SLIP-03**: Slip assignment filters by vessel dimensions (LOA, beam, draft must fit)
 - [x] **SLIP-04**: Only one active stay can occupy a slip at a time
 
 ### Dispatch Board
@@ -27,16 +27,16 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **BOARD-02**: Each guest appears as a card showing name, vessel, slip, and status-appropriate action button
 - [x] **BOARD-03**: Dock strip displays all 20 transient slips color-coded by status (teal=available, ocean=occupied, rope=departing, fog=maintenance)
 - [x] **BOARD-04**: Clicking a dock strip slot opens guest detail or starts check-in (if available)
-- [ ] **BOARD-05**: Board updates after mutations without full page reload
+- [x] **BOARD-05**: Board updates after mutations without full page reload
 
 ### Check-In Wizard
 
-- [ ] **CHKIN-01**: Staff can open a 3-step check-in wizard from the top bar or an arriving guest card
-- [ ] **CHKIN-02**: Step 1 collects guest name, vessel name, LOA, beam, draft, and contact info
-- [ ] **CHKIN-03**: Step 2 shows only slips that fit the vessel, displayed as a visual grid with dimension labels
-- [ ] **CHKIN-04**: Step 3 shows summary with auto-generated gate code (6-digit), Wi-Fi password (harbor-lastname-NNNN), and shower tokens
-- [ ] **CHKIN-05**: Completing check-in creates the stay, assigns the slip, and moves the guest card to Checked In column
-- [ ] **CHKIN-06**: Pre-booked guests have fields pre-populated in Step 1
+- [x] **CHKIN-01**: Staff can open a 3-step check-in wizard from the top bar or an arriving guest card
+- [x] **CHKIN-02**: Step 1 collects guest name, vessel name, LOA, beam, draft, and contact info
+- [x] **CHKIN-03**: Step 2 shows only slips that fit the vessel, displayed as a visual grid with dimension labels
+- [x] **CHKIN-04**: Step 3 shows summary with auto-generated gate code (6-digit), Wi-Fi password (harbor-lastname-NNNN), and shower tokens
+- [x] **CHKIN-05**: Completing check-in creates the stay, assigns the slip, and moves the guest card to Checked In column
+- [x] **CHKIN-06**: Pre-booked guests have fields pre-populated in Step 1
 
 ### Amenity Tracking
 
@@ -134,19 +134,19 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-04 | Phase 1 | Complete |
 | SLIP-01 | Phase 1 | Complete |
 | SLIP-02 | Phase 1 | Complete |
-| SLIP-03 | Phase 2 | Pending |
+| SLIP-03 | Phase 2 | Complete |
 | SLIP-04 | Phase 1 | Complete |
 | BOARD-01 | Phase 2 | Complete |
 | BOARD-02 | Phase 2 | Complete |
 | BOARD-03 | Phase 2 | Complete |
 | BOARD-04 | Phase 2 | Complete |
-| BOARD-05 | Phase 2 | Pending |
-| CHKIN-01 | Phase 2 | Pending |
-| CHKIN-02 | Phase 2 | Pending |
-| CHKIN-03 | Phase 2 | Pending |
-| CHKIN-04 | Phase 2 | Pending |
-| CHKIN-05 | Phase 2 | Pending |
-| CHKIN-06 | Phase 2 | Pending |
+| BOARD-05 | Phase 2 | Complete |
+| CHKIN-01 | Phase 2 | Complete |
+| CHKIN-02 | Phase 2 | Complete |
+| CHKIN-03 | Phase 2 | Complete |
+| CHKIN-04 | Phase 2 | Complete |
+| CHKIN-05 | Phase 2 | Complete |
+| CHKIN-06 | Phase 2 | Complete |
 | AMEN-01 | Phase 3 | Pending |
 | AMEN-02 | Phase 3 | Pending |
 | AMEN-03 | Phase 3 | Pending |

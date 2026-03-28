@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-01-PLAN.md
-last_updated: "2026-03-28T02:26:04.616Z"
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-03-28T02:32:58.037Z"
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 6
-  completed_plans: 4
+  completed_plans: 5
 ---
 
 # Project State
@@ -19,18 +19,18 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-28)
 
 **Core value:** Dock staff can check in a transient boater -- assign a slip, generate credentials, and hand off access info -- in under 60 seconds from a single screen.
-**Current focus:** Phase 01 — foundation
+**Current focus:** Phase 02 — dispatch board & check-in
 
 ## Current Position
 
-Phase: 01 (foundation) — COMPLETE
-Plan: 3 of 3 (DONE)
+Phase: 02 (dispatch-board-check-in) — IN PROGRESS
+Plan: 2 of 3
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 3
+- Total plans completed: 5
 - Average duration: 9min
 - Total execution time: 0.5 hours
 
@@ -47,6 +47,7 @@ Plan: 3 of 3 (DONE)
 
 *Updated after each plan completion*
 | Phase 02 P01 | 4min | 2 tasks | 13 files |
+| Phase 02 P02 | 3min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -70,6 +71,8 @@ Recent decisions affecting current work:
 - 01-03: Added .env.local auto-loading to drizzle config and seed script
 - [Phase 02]: Drizzle relational API for board queries (db.query.stays.findMany with with:)
 - [Phase 02]: Base-ui tooltip uses delay prop and direct TooltipTrigger render (not asChild)
+- [Phase 02]: Removed z.default() from schema to align with react-hook-form zodResolver input types
+- [Phase 02]: Sequential DB operations in server actions (no transactions) for Neon HTTP driver
 
 ### Pending Todos
 
@@ -81,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-28T02:26:04.613Z
-Stopped at: Completed 02-01-PLAN.md
+Last session: 2026-03-28T02:32:58.035Z
+Stopped at: Completed 02-02-PLAN.md
 Resume file: None
