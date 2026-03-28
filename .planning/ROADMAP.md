@@ -46,12 +46,12 @@ Plans:
   3. Staff can complete the 3-step check-in wizard (guest info, slip selection filtered by vessel dimensions, credential summary) and the guest card moves to Checked In
   4. Check-in generates a 6-digit gate code, harbor-lastname-NNNN Wi-Fi password, and shower tokens displayed in monospace
   5. Pre-booked guests have their fields pre-populated in Step 1 of the wizard
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md — Data layer (queries, credentials, schemas) + board shell (3 columns, dock strip, guest cards)
+- [ ] 02-02-PLAN.md — Check-in wizard (3-step modal, server action, form validation, credential generation)
+- [ ] 02-03-PLAN.md — Integration and polish (top bar button, loading skeletons, error handling, human verification)
 
 ### Phase 3: Guest Lifecycle
 **Goal**: Staff can track all amenity usage during a stay, settle accounts on departure, and guests can view their own stay info
@@ -93,6 +93,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 0/3 | Complete    | 2026-03-28 |
-| 2. Dispatch Board & Check-In | 0/3 | Not started | - |
+| 2. Dispatch Board & Check-In | 0/3 | Planning complete | - |
 | 3. Guest Lifecycle | 0/3 | Not started | - |
 | 4. Manager Views | 0/2 | Not started | - |
