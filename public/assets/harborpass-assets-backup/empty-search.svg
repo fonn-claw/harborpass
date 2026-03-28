@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none">
+  <!-- Magnifying glass -->
+  <circle cx="110" cy="65" r="28" stroke="#E2E8F0" stroke-width="3"/>
+  <line x1="130" y1="85" x2="150" y2="105" stroke="#E2E8F0" stroke-width="3" stroke-linecap="round"/>
+  <!-- Water waves through the glass (searching the sea) -->
+  <path d="M88 60 Q95 56 102 60 Q109 64 116 60 Q123 56 130 60" stroke="#1B6FA8" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <path d="M88 70 Q95 66 102 70 Q109 74 116 70 Q123 66 130 70" stroke="#1B6FA8" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <!-- Question mark dots below -->
+  <circle cx="105" cy="130" r="2" fill="#64748B" opacity="0.4"/>
+  <circle cx="120" cy="130" r="2" fill="#64748B" opacity="0.4"/>
+  <circle cx="135" cy="130" r="2" fill="#64748B" opacity="0.4"/>
+</svg>

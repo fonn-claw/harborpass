@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none">
+  <!-- Calm water -->
+  <path d="M0 120 Q30 115 60 120 Q90 125 120 120 Q150 115 180 120 Q210 125 240 120 L240 160 L0 160 Z" fill="#E2E8F0"/>
+  <path d="M0 130 Q40 125 80 130 Q120 135 160 130 Q200 125 240 130 L240 160 L0 160 Z" fill="#D1D8E0" opacity="0.5"/>
+  <!-- Empty dock -->
+  <rect x="80" y="70" width="80" height="8" rx="2" fill="#C4883A" opacity="0.6"/>
+  <!-- Dock posts -->
+  <rect x="90" y="68" width="4" height="52" rx="1" fill="#C4883A" opacity="0.4"/>
+  <rect x="146" y="68" width="4" height="52" rx="1" fill="#C4883A" opacity="0.4"/>
+  <!-- Sun -->
+  <circle cx="120" cy="35" r="16" fill="#F5F0E8" stroke="#C4883A" stroke-width="1.5"/>
+  <!-- Sun rays -->
+  <line x1="120" y1="14" x2="120" y2="8" stroke="#C4883A" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="136" y1="20" x2="140" y2="16" stroke="#C4883A" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="104" y1="20" x2="100" y2="16" stroke="#C4883A" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="140" y1="35" x2="146" y2="35" stroke="#C4883A" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="100" y1="35" x2="94" y2="35" stroke="#C4883A" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

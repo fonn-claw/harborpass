@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Box/boundary representing the slip -->
+  <path d="M9 3 L3 3 L3 21 L9 21"/>
+  <!-- Arrow pointing right out of the box -->
+  <polyline points="17,8 21,12 17,16"/>
+  <line x1="9" y1="12" x2="21" y2="12"/>
+</svg>

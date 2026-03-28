@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Tank/container -->
+  <rect x="4" y="10" width="10" height="10" rx="1"/>
+  <!-- Pipe going up and out -->
+  <path d="M14 14 L18 14 L18 6 L20 6"/>
+  <!-- Arrow showing flow direction -->
+  <polyline points="16,4 20,6 16,8"/>
+  <!-- Fill level lines -->
+  <line x1="6" y1="15" x2="12" y2="15"/>
+  <line x1="6" y1="17" x2="12" y2="17"/>
+</svg>
