@@ -1,5 +1,5 @@
 import { db } from "@/db";
-import { stays, slips, users, guests, charges } from "@/db/schema";
+import { stays, slips, users, guests, charges, pricing } from "@/db/schema";
 import { eq, and, or, gte, lte, sql, desc } from "drizzle-orm";
 import { startOfDay, endOfDay, differenceInCalendarDays, startOfMonth } from "date-fns";
 
@@ -273,6 +273,14 @@ export async function getGuestHistory(): Promise<GuestHistoryEntry[]> {
     })),
   }));
 }
+
+// ---- Pricing ----
+
+export async function getAllPricing() {
+  return db.select().from(pricing).orderBy(pricing.category, pricing.name);
+}
+
+export type PricingEntry = Awaited<ReturnType<typeof getAllPricing>>[number];
 
 export async function getGuestPortalData(userId: number) {
   // Step 1: Get user email
