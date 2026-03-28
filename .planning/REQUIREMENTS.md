@@ -72,11 +72,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Demo Data
 
-- [ ] **DEMO-01**: Seed data creates Sunset Harbor Marina with 20 transient slips of varying sizes
-- [ ] **DEMO-02**: Seed creates 12 occupied stays, 3 arriving today (1 pre-booked, 2 walk-ups), 2 departing with charges
-- [ ] **DEMO-03**: Seed creates 3 demo accounts (staff, manager, guest) with specified credentials
-- [ ] **DEMO-04**: Seed includes realistic amenity usage history and guest history going back 2 months
-- [ ] **DEMO-05**: Seed includes 1 repeat visitor with a previous stay
+- [x] **DEMO-01**: Seed data creates Sunset Harbor Marina with 20 transient slips of varying sizes
+- [x] **DEMO-02**: Seed creates 12 occupied stays, 3 arriving today (1 pre-booked, 2 walk-ups), 2 departing with charges
+- [x] **DEMO-03**: Seed creates 3 demo accounts (staff, manager, guest) with specified credentials
+- [x] **DEMO-04**: Seed includes realistic amenity usage history and guest history going back 2 months
+- [x] **DEMO-05**: Seed includes 1 repeat visitor with a previous stay
 
 ### Design Compliance
 
@@ -167,11 +167,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MNGR-02 | Phase 4 | Pending |
 | MNGR-03 | Phase 4 | Pending |
 | MNGR-04 | Phase 4 | Pending |
-| DEMO-01 | Phase 1 | Pending |
-| DEMO-02 | Phase 1 | Pending |
-| DEMO-03 | Phase 1 | Pending |
-| DEMO-04 | Phase 1 | Pending |
-| DEMO-05 | Phase 1 | Pending |
+| DEMO-01 | Phase 1 | Complete |
+| DEMO-02 | Phase 1 | Complete |
+| DEMO-03 | Phase 1 | Complete |
+| DEMO-04 | Phase 1 | Complete |
+| DEMO-05 | Phase 1 | Complete |
 | DSGN-01 | Phase 1 | Complete |
 | DSGN-02 | Phase 1 | Complete |
 | DSGN-03 | Phase 1 | Complete |
