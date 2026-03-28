@@ -117,12 +117,12 @@ export function DispatchBoard({ data, slips }: DispatchBoardProps) {
       : null;
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)]">
+    <div className="flex flex-col min-h-[calc(100vh-4rem)]">
       {/* Dock strip -- full width at top */}
       <DockStrip slips={slips} onSlipClick={handleSlipClick} />
 
       {/* Three swim-lane columns */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-0 divide-x divide-fog overflow-y-auto lg:overflow-hidden pt-2">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-0 divide-x divide-fog overflow-y-auto lg:overflow-y-auto pt-2">
         <BoardColumn
           title="Arriving Today"
           count={data.arriving.length}
