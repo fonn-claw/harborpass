@@ -68,7 +68,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **MNGR-01**: Manager sees occupancy overview (occupied/available/departing counts and percentages)
 - [x] **MNGR-02**: Manager sees revenue breakdown by category (slip fees, fuel, amenities)
 - [x] **MNGR-03**: Manager can view guest history with search (past stays, repeat visitors)
-- [ ] **MNGR-04**: Manager can configure pricing: per-night slip rates by size category, amenity fees, fuel price per gallon
+- [x] **MNGR-04**: Manager can configure pricing: per-night slip rates by size category, amenity fees, fuel price per gallon
 
 ### Demo Data
 
@@ -166,7 +166,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MNGR-01 | Phase 4 | Complete |
 | MNGR-02 | Phase 4 | Complete |
 | MNGR-03 | Phase 4 | Complete |
-| MNGR-04 | Phase 4 | Pending |
+| MNGR-04 | Phase 4 | Complete |
 | DEMO-01 | Phase 1 | Complete |
 | DEMO-02 | Phase 1 | Complete |
 | DEMO-03 | Phase 1 | Complete |
