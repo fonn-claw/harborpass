@@ -35,6 +35,9 @@ async function fetchActiveStays() {
       guest: true,
       slip: true,
       amenityUsages: true,
+      charges: {
+        orderBy: (ch, { asc }) => [asc(ch.createdAt)],
+      },
     },
   });
 }

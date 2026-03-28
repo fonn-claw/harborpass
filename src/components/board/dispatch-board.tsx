@@ -5,6 +5,7 @@ import { BoardColumn } from "./board-column";
 import { DockStrip } from "./dock-strip";
 import { CheckInWizard } from "@/components/check-in/check-in-wizard";
 import { GuestDetailPanel } from "./guest-detail-panel";
+import { SettlementModal } from "./settlement-modal";
 import { toast } from "sonner";
 import type { BoardData, SlipWithStay } from "@/lib/queries";
 
@@ -20,6 +21,7 @@ export function DispatchBoard({ data, slips }: DispatchBoardProps) {
   const [selectedStay, setSelectedStay] = useState<StayData | null>(null);
   const [preSelectedSlipId, setPreSelectedSlipId] = useState<number | null>(null);
   const [detailStayId, setDetailStayId] = useState<number | null>(null);
+  const [settleStayId, setSettleStayId] = useState<number | null>(null);
 
   // Flatten all stays for the detail panel
   const allStays = useMemo(
@@ -81,9 +83,7 @@ export function DispatchBoard({ data, slips }: DispatchBoardProps) {
   }, []);
 
   const handleSettle = useCallback((stay: StayData) => {
-    toast("Settlement coming in Phase 3", {
-      description: `${stay.guest.name} - ${stay.guest.vesselName}`,
-    });
+    setSettleStayId(stay.id);
   }, []);
 
   // Close wizard and reset state
@@ -154,6 +154,16 @@ export function DispatchBoard({ data, slips }: DispatchBoardProps) {
         open={detailStayId !== null}
         onOpenChange={(open) => {
           if (!open) setDetailStayId(null);
+        }}
+      />
+
+      {/* Settlement modal */}
+      <SettlementModal
+        stayId={settleStayId}
+        stays={allStays}
+        open={settleStayId !== null}
+        onOpenChange={(open) => {
+          if (!open) setSettleStayId(null);
         }}
       />
 
