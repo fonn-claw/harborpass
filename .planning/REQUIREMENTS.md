@@ -23,10 +23,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Dispatch Board
 
-- [ ] **BOARD-01**: Staff sees three swim-lane columns: Arriving Today, Checked In, Departing Today
-- [ ] **BOARD-02**: Each guest appears as a card showing name, vessel, slip, and status-appropriate action button
-- [ ] **BOARD-03**: Dock strip displays all 20 transient slips color-coded by status (teal=available, ocean=occupied, rope=departing, fog=maintenance)
-- [ ] **BOARD-04**: Clicking a dock strip slot opens guest detail or starts check-in (if available)
+- [x] **BOARD-01**: Staff sees three swim-lane columns: Arriving Today, Checked In, Departing Today
+- [x] **BOARD-02**: Each guest appears as a card showing name, vessel, slip, and status-appropriate action button
+- [x] **BOARD-03**: Dock strip displays all 20 transient slips color-coded by status (teal=available, ocean=occupied, rope=departing, fog=maintenance)
+- [x] **BOARD-04**: Clicking a dock strip slot opens guest detail or starts check-in (if available)
 - [ ] **BOARD-05**: Board updates after mutations without full page reload
 
 ### Check-In Wizard
@@ -136,10 +136,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SLIP-02 | Phase 1 | Complete |
 | SLIP-03 | Phase 2 | Pending |
 | SLIP-04 | Phase 1 | Complete |
-| BOARD-01 | Phase 2 | Pending |
-| BOARD-02 | Phase 2 | Pending |
-| BOARD-03 | Phase 2 | Pending |
-| BOARD-04 | Phase 2 | Pending |
+| BOARD-01 | Phase 2 | Complete |
+| BOARD-02 | Phase 2 | Complete |
+| BOARD-03 | Phase 2 | Complete |
+| BOARD-04 | Phase 2 | Complete |
 | BOARD-05 | Phase 2 | Pending |
 | CHKIN-01 | Phase 2 | Pending |
 | CHKIN-02 | Phase 2 | Pending |

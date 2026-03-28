@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Phase 2 context gathered
-last_updated: "2026-03-28T02:05:13.706Z"
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-28T02:26:04.616Z"
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 6
+  completed_plans: 4
 ---
 
 # Project State
@@ -46,6 +46,7 @@ Plan: 3 of 3 (DONE)
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 02 P01 | 4min | 2 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -67,6 +68,8 @@ Recent decisions affecting current work:
 - 01-03: Made slipId/gateCode/wifiPassword nullable on stays for reservation flow
 - 01-03: Created harborpass database on shared Neon project (separate db name)
 - 01-03: Added .env.local auto-loading to drizzle config and seed script
+- [Phase 02]: Drizzle relational API for board queries (db.query.stays.findMany with with:)
+- [Phase 02]: Base-ui tooltip uses delay prop and direct TooltipTrigger render (not asChild)
 
 ### Pending Todos
 
@@ -78,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-28T02:05:13.703Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-dispatch-board-check-in/02-CONTEXT.md
+Last session: 2026-03-28T02:26:04.613Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: None
