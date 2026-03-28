@@ -13,7 +13,7 @@ HarborPass delivers a marina dispatch board in four phases: first the foundation
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Schema, authentication, seed data, and design system (completed 2026-03-28)
-- [ ] **Phase 2: Dispatch Board & Check-In** - Three-column board, dock strip, and 3-step check-in wizard
+- [x] **Phase 2: Dispatch Board & Check-In** - Three-column board, dock strip, and 3-step check-in wizard (completed 2026-03-28)
 - [ ] **Phase 3: Guest Lifecycle** - Amenity logging, settlement/checkout, and guest portal
 - [ ] **Phase 4: Manager Views** - Occupancy analytics, revenue reporting, pricing config, and guest history
 
@@ -63,12 +63,12 @@ Plans:
   3. Staff can open a settlement panel for departing guests showing itemized charges (nightly rate, fuel, showers, power, pump-out, laundry) with a running total
   4. Completing settlement releases the slip, archives the stay with full charge history, and removes the guest from the board
   5. Guest logs in and sees a mobile-friendly portal with slip assignment, credentials in large readable text, current charges, and guest-welcome.png header
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
-- [ ] 03-03: TBD
+- [ ] 03-01-PLAN.md — Guest detail slide-over panel with amenity logging (shower, fuel, power, pump-out, laundry)
+- [ ] 03-02-PLAN.md — Settlement modal with itemized charges and checkout flow
+- [ ] 03-03-PLAN.md — Guest portal with stay info, credentials, and charges
 
 ### Phase 4: Manager Views
 **Goal**: Manager can monitor marina performance, configure pricing, and review guest history
@@ -93,6 +93,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 0/3 | Complete    | 2026-03-28 |
-| 2. Dispatch Board & Check-In | 0/3 | Planning complete | - |
+| 2. Dispatch Board & Check-In | 3/3 | Complete | 2026-03-28 |
 | 3. Guest Lifecycle | 0/3 | Not started | - |
 | 4. Manager Views | 0/2 | Not started | - |
