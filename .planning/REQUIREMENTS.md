@@ -9,10 +9,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Authentication
 
-- [ ] **AUTH-01**: User can log in with email and password
-- [ ] **AUTH-02**: User session persists across browser refresh
-- [ ] **AUTH-03**: User can log out from any page
-- [ ] **AUTH-04**: Users are routed to role-appropriate view after login (staff->board, manager->analytics, guest->portal)
+- [x] **AUTH-01**: User can log in with email and password
+- [x] **AUTH-02**: User session persists across browser refresh
+- [x] **AUTH-03**: User can log out from any page
+- [x] **AUTH-04**: Users are routed to role-appropriate view after login (staff->board, manager->analytics, guest->portal)
 
 ### Slips & Vessels
 
@@ -84,7 +84,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **DSGN-02**: Color palette matches design spec (navy, ocean, teal, sand, rope, coral, slate, fog)
 - [x] **DSGN-03**: Typography uses DM Sans for headings, Inter for body, JetBrains Mono for credentials
 - [x] **DSGN-04**: All pre-generated SVG/PNG assets from public/assets/ are used as documented
-- [ ] **DSGN-05**: Login screen uses hero-marina.png as full-bleed background
+- [x] **DSGN-05**: Login screen uses hero-marina.png as full-bleed background
 - [ ] **DSGN-06**: Guest portal uses guest-welcome.png as header illustration
 - [x] **DSGN-07**: Responsive design works on desktop and mobile
 
@@ -128,10 +128,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
-| AUTH-04 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Complete |
+| AUTH-02 | Phase 1 | Complete |
+| AUTH-03 | Phase 1 | Complete |
+| AUTH-04 | Phase 1 | Complete |
 | SLIP-01 | Phase 1 | Complete |
 | SLIP-02 | Phase 1 | Complete |
 | SLIP-03 | Phase 2 | Pending |
@@ -176,7 +176,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DSGN-02 | Phase 1 | Complete |
 | DSGN-03 | Phase 1 | Complete |
 | DSGN-04 | Phase 1 | Complete |
-| DSGN-05 | Phase 1 | Pending |
+| DSGN-05 | Phase 1 | Complete |
 | DSGN-06 | Phase 3 | Pending |
 | DSGN-07 | Phase 1 | Complete |
 
