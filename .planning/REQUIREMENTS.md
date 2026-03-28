@@ -50,11 +50,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Settlement & Checkout
 
-- [ ] **SETL-01**: Staff can open a settlement panel for departing guests
-- [ ] **SETL-02**: Settlement shows itemized charges: nightly rate x nights, fuel, showers, power, pump-out, laundry
-- [ ] **SETL-03**: Settlement shows running total
-- [ ] **SETL-04**: Staff can complete settlement which releases the slip and marks the stay as completed
-- [ ] **SETL-05**: Completed stays are archived with full charge history
+- [x] **SETL-01**: Staff can open a settlement panel for departing guests
+- [x] **SETL-02**: Settlement shows itemized charges: nightly rate x nights, fuel, showers, power, pump-out, laundry
+- [x] **SETL-03**: Settlement shows running total
+- [x] **SETL-04**: Staff can complete settlement which releases the slip and marks the stay as completed
+- [x] **SETL-05**: Completed stays are archived with full charge history
 
 ### Guest Portal
 
@@ -154,11 +154,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AMEN-05 | Phase 3 | Complete |
 | AMEN-06 | Phase 3 | Complete |
 | AMEN-07 | Phase 3 | Complete |
-| SETL-01 | Phase 3 | Pending |
-| SETL-02 | Phase 3 | Pending |
-| SETL-03 | Phase 3 | Pending |
-| SETL-04 | Phase 3 | Pending |
-| SETL-05 | Phase 3 | Pending |
+| SETL-01 | Phase 3 | Complete |
+| SETL-02 | Phase 3 | Complete |
+| SETL-03 | Phase 3 | Complete |
+| SETL-04 | Phase 3 | Complete |
+| SETL-05 | Phase 3 | Complete |
 | GUST-01 | Phase 3 | Complete |
 | GUST-02 | Phase 3 | Complete |
 | GUST-03 | Phase 3 | Complete |

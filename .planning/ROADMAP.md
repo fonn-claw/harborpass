@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Schema, authentication, seed data, and design system (completed 2026-03-28)
 - [x] **Phase 2: Dispatch Board & Check-In** - Three-column board, dock strip, and 3-step check-in wizard (completed 2026-03-28)
-- [ ] **Phase 3: Guest Lifecycle** - Amenity logging, settlement/checkout, and guest portal
+- [x] **Phase 3: Guest Lifecycle** - Amenity logging, settlement/checkout, and guest portal (completed 2026-03-28)
 - [ ] **Phase 4: Manager Views** - Occupancy analytics, revenue reporting, pricing config, and guest history
 
 ## Phase Details
@@ -63,7 +63,7 @@ Plans:
   3. Staff can open a settlement panel for departing guests showing itemized charges (nightly rate, fuel, showers, power, pump-out, laundry) with a running total
   4. Completing settlement releases the slip, archives the stay with full charge history, and removes the guest from the board
   5. Guest logs in and sees a mobile-friendly portal with slip assignment, credentials in large readable text, current charges, and guest-welcome.png header
-**Plans:** 1/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 03-01-PLAN.md — Guest detail slide-over panel with amenity logging (shower, fuel, power, pump-out, laundry)
@@ -94,5 +94,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation | 0/3 | Complete    | 2026-03-28 |
 | 2. Dispatch Board & Check-In | 3/3 | Complete | 2026-03-28 |
-| 3. Guest Lifecycle | 1/3 | In Progress|  |
+| 3. Guest Lifecycle | 3/3 | Complete   | 2026-03-28 |
 | 4. Manager Views | 0/2 | Not started | - |
