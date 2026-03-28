@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Schema, authentication, seed data, and design system (completed 2026-03-28)
 - [x] **Phase 2: Dispatch Board & Check-In** - Three-column board, dock strip, and 3-step check-in wizard (completed 2026-03-28)
 - [x] **Phase 3: Guest Lifecycle** - Amenity logging, settlement/checkout, and guest portal (completed 2026-03-28)
-- [ ] **Phase 4: Manager Views** - Occupancy analytics, revenue reporting, pricing config, and guest history
+- [x] **Phase 4: Manager Views** - Occupancy analytics, revenue reporting, pricing config, and guest history (completed 2026-03-28)
 
 ## Phase Details
 
@@ -95,4 +95,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation | 0/3 | Complete    | 2026-03-28 |
 | 2. Dispatch Board & Check-In | 3/3 | Complete | 2026-03-28 |
 | 3. Guest Lifecycle | 3/3 | Complete   | 2026-03-28 |
-| 4. Manager Views | 0/2 | Not started | - |
+| 4. Manager Views | 2/2 | Complete | 2026-03-28 |
