@@ -1,7 +1,8 @@
-import { getOccupancyStats, getRevenueBreakdown, getGuestHistory } from "@/lib/queries";
+import { getOccupancyStats, getRevenueBreakdown, getGuestHistory, getAllPricing } from "@/lib/queries";
 import { formatCurrency } from "@/lib/format";
 import { Card, CardContent } from "@/components/ui/card";
 import { GuestHistory } from "./guest-history";
+import { PricingConfig } from "./pricing-config";
 
 const CATEGORY_LABELS: Record<string, string> = {
   slip: "Slip Fees",
@@ -16,10 +17,11 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export default async function ManagerPage() {
-  const [occupancy, revenue, history] = await Promise.all([
+  const [occupancy, revenue, history, pricingData] = await Promise.all([
     getOccupancyStats(),
     getRevenueBreakdown(),
     getGuestHistory(),
+    getAllPricing(),
   ]);
 
   const monthName = new Date().toLocaleDateString("en-US", {
@@ -134,6 +136,9 @@ export default async function ManagerPage() {
 
       {/* Guest History */}
       <GuestHistory history={JSON.parse(JSON.stringify(history))} />
+
+      {/* Pricing Configuration */}
+      <PricingConfig pricing={pricingData} />
     </div>
   );
 }
