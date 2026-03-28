@@ -1,8 +1,12 @@
 "use client";
 
+import { useState, useCallback } from "react";
 import { BoardColumn } from "./board-column";
 import { DockStrip } from "./dock-strip";
+import { CheckInWizard } from "@/components/check-in/check-in-wizard";
 import type { BoardData, SlipWithStay } from "@/lib/queries";
+
+type StayData = BoardData["arriving"][number];
 
 interface DispatchBoardProps {
   data: BoardData;
@@ -10,22 +14,82 @@ interface DispatchBoardProps {
 }
 
 export function DispatchBoard({ data, slips }: DispatchBoardProps) {
-  // Placeholder click handlers -- wizard/detail panels added in Plan 02/03
-  const handleCheckIn = (stay: BoardData["arriving"][number]) => {
-    console.log("Check in:", stay.id, stay.guest.name);
-  };
+  const [wizardOpen, setWizardOpen] = useState(false);
+  const [selectedStay, setSelectedStay] = useState<StayData | null>(null);
+  const [preSelectedSlipId, setPreSelectedSlipId] = useState<number | null>(null);
 
-  const handleViewStay = (stay: BoardData["arriving"][number]) => {
+  // Derive available slips from props
+  const availableSlips = slips
+    .filter((s) => s.status === "available")
+    .map((s) => ({
+      id: s.id,
+      name: s.name,
+      maxLoa: s.maxLoa,
+      maxBeam: s.maxBeam,
+      waterDepth: s.waterDepth,
+      size: s.size,
+    }));
+
+  // Check-in from arriving card
+  const handleCheckIn = useCallback((stay: StayData) => {
+    setSelectedStay(stay);
+    setPreSelectedSlipId(null);
+    setWizardOpen(true);
+  }, []);
+
+  // Check-in from dock strip (available slip click)
+  const handleSlipClick = useCallback(
+    (slip: SlipWithStay) => {
+      if (slip.status === "available") {
+        setSelectedStay(null);
+        setPreSelectedSlipId(slip.id);
+        setWizardOpen(true);
+      } else {
+        // Occupied/departing slips -- placeholder for future detail panel
+        console.log("Slip clicked:", slip.name, slip.status);
+      }
+    },
+    []
+  );
+
+  // Placeholders for Plan 03
+  const handleViewStay = useCallback((stay: StayData) => {
     console.log("View stay:", stay.id, stay.guest.name);
-  };
+  }, []);
 
-  const handleSettle = (stay: BoardData["arriving"][number]) => {
+  const handleSettle = useCallback((stay: StayData) => {
     console.log("Settle:", stay.id, stay.guest.name);
-  };
+  }, []);
 
-  const handleSlipClick = (slip: SlipWithStay) => {
-    console.log("Slip clicked:", slip.name, slip.status);
-  };
+  // Close wizard and reset state
+  const handleWizardClose = useCallback((open: boolean) => {
+    if (!open) {
+      setWizardOpen(false);
+      setSelectedStay(null);
+      setPreSelectedSlipId(null);
+    }
+  }, []);
+
+  // Derive pre-booked stay data for the wizard
+  const preBookedStay =
+    selectedStay && selectedStay.status === "reserved" && selectedStay.isPreBooked
+      ? {
+          id: selectedStay.id,
+          guestId: selectedStay.guestId,
+          guest: {
+            id: selectedStay.guest.id,
+            name: selectedStay.guest.name,
+            vesselName: selectedStay.guest.vesselName,
+            vesselLoa: selectedStay.guest.vesselLoa,
+            vesselBeam: selectedStay.guest.vesselBeam,
+            vesselDraft: selectedStay.guest.vesselDraft,
+            phone: selectedStay.guest.phone,
+            email: selectedStay.guest.email,
+          },
+          expectedDeparture: selectedStay.expectedDeparture,
+          nightlyRate: selectedStay.nightlyRate,
+        }
+      : null;
 
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)]">
@@ -56,6 +120,15 @@ export function DispatchBoard({ data, slips }: DispatchBoardProps) {
           onSettle={handleSettle}
         />
       </div>
+
+      {/* Check-in wizard */}
+      <CheckInWizard
+        open={wizardOpen}
+        onOpenChange={handleWizardClose}
+        availableSlips={availableSlips}
+        preBookedStay={preBookedStay}
+        preSelectedSlipId={preSelectedSlipId}
+      />
     </div>
   );
 }
