@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-03-28)
 
 ## Current Position
 
-Phase: 02 (dispatch-board-check-in) — COMPLETE
-Plan: 3 of 3 (DONE)
+Phase: 03 (guest-lifecycle) — IN PROGRESS
+Plan: 1 of 3 (DONE)
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Plan: 3 of 3 (DONE)
 | Phase 02 P01 | 4min | 2 tasks | 13 files |
 | Phase 02 P02 | 3min | 2 tasks | 7 files |
 | Phase 02 P03 | 2min | 1 tasks | 8 files |
+| Phase 03 P01 | 6min | 2 tasks | 9 files |
 | Phase 03 P03 | 3min | 2 tasks | 3 files |
 
 ## Accumulated Context
@@ -76,6 +77,9 @@ Recent decisions affecting current work:
 - [Phase 02]: Removed z.default() from schema to align with react-hook-form zodResolver input types
 - [Phase 02]: Sequential DB operations in server actions (no transactions) for Neon HTTP driver
 - [Phase 02]: Used window CustomEvent to bridge server layout to client dispatch board for Check In button
+- [Phase 03]: Departing card click opens detail panel, Settle button stays separate
+- [Phase 03]: Shore power $0.12/kWh per CONTEXT.md, not per-day pricing table rate
+- [Phase 03]: Free shower creates $0 amenityUsage but no charge row
 - [Phase 03]: Created format.ts with formatCurrency/formatDate helpers (parallel plan dependency)
 
 ### Pending Todos
@@ -88,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-28T02:54:15.767Z
-Stopped at: Completed 03-03-PLAN.md
+Last session: 2026-03-28T02:56:23Z
+Stopped at: Completed 03-01-PLAN.md
 Resume file: None

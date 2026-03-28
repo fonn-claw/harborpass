@@ -40,13 +40,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Amenity Tracking
 
-- [ ] **AMEN-01**: Staff can log shower usage with a single tap from guest detail
-- [ ] **AMEN-02**: Staff can log fuel dispensed (gallons + type: diesel/gas) from guest detail
-- [ ] **AMEN-03**: Staff can log shore power usage (kWh) from guest detail
-- [ ] **AMEN-04**: Staff can log pump-out service from guest detail
-- [ ] **AMEN-05**: Staff can log laundry token usage from guest detail
-- [ ] **AMEN-06**: Each amenity log creates a charge record with timestamp and amount
-- [ ] **AMEN-07**: Guest card shows amenity badges indicating what's been used
+- [x] **AMEN-01**: Staff can log shower usage with a single tap from guest detail
+- [x] **AMEN-02**: Staff can log fuel dispensed (gallons + type: diesel/gas) from guest detail
+- [x] **AMEN-03**: Staff can log shore power usage (kWh) from guest detail
+- [x] **AMEN-04**: Staff can log pump-out service from guest detail
+- [x] **AMEN-05**: Staff can log laundry token usage from guest detail
+- [x] **AMEN-06**: Each amenity log creates a charge record with timestamp and amount
+- [x] **AMEN-07**: Guest card shows amenity badges indicating what's been used
 
 ### Settlement & Checkout
 
@@ -147,13 +147,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CHKIN-04 | Phase 2 | Complete |
 | CHKIN-05 | Phase 2 | Complete |
 | CHKIN-06 | Phase 2 | Complete |
-| AMEN-01 | Phase 3 | Pending |
-| AMEN-02 | Phase 3 | Pending |
-| AMEN-03 | Phase 3 | Pending |
-| AMEN-04 | Phase 3 | Pending |
-| AMEN-05 | Phase 3 | Pending |
-| AMEN-06 | Phase 3 | Pending |
-| AMEN-07 | Phase 3 | Pending |
+| AMEN-01 | Phase 3 | Complete |
+| AMEN-02 | Phase 3 | Complete |
+| AMEN-03 | Phase 3 | Complete |
+| AMEN-04 | Phase 3 | Complete |
+| AMEN-05 | Phase 3 | Complete |
+| AMEN-06 | Phase 3 | Complete |
+| AMEN-07 | Phase 3 | Complete |
 | SETL-01 | Phase 3 | Pending |
 | SETL-02 | Phase 3 | Pending |
 | SETL-03 | Phase 3 | Pending |
