@@ -1,3 +1,20 @@
+import { readFileSync, existsSync } from "fs";
+import { resolve } from "path";
+
+// Load .env.local for standalone script execution
+const envPath = resolve(process.cwd(), ".env.local");
+if (!process.env.DATABASE_URL && existsSync(envPath)) {
+  const envContent = readFileSync(envPath, "utf-8");
+  for (const line of envContent.split("\n")) {
+    const match = line.match(/^([^#=]+)=(.*)$/);
+    if (match) {
+      const key = match[1].trim();
+      const value = match[2].trim().replace(/^["']|["']$/g, "");
+      if (!process.env[key]) process.env[key] = value;
+    }
+  }
+}
+
 import { db } from "./index";
 import * as schema from "./schema";
 import bcrypt from "bcryptjs";
