@@ -1,7 +1,7 @@
 # Requirements: HarborPass
 
 **Defined:** 2026-03-28
-**Core Value:** Dock staff can check in a transient boater — assign a slip, generate credentials, and hand off access info — in under 60 seconds from a single screen.
+**Core Value:** Dock staff can check in a transient boater -- assign a slip, generate credentials, and hand off access info -- in under 60 seconds from a single screen.
 
 ## v1 Requirements
 
@@ -12,7 +12,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **AUTH-01**: User can log in with email and password
 - [ ] **AUTH-02**: User session persists across browser refresh
 - [ ] **AUTH-03**: User can log out from any page
-- [ ] **AUTH-04**: Users are routed to role-appropriate view after login (staff→board, manager→analytics, guest→portal)
+- [ ] **AUTH-04**: Users are routed to role-appropriate view after login (staff->board, manager->analytics, guest->portal)
 
 ### Slips & Vessels
 
@@ -51,7 +51,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Settlement & Checkout
 
 - [ ] **SETL-01**: Staff can open a settlement panel for departing guests
-- [ ] **SETL-02**: Settlement shows itemized charges: nightly rate × nights, fuel, showers, power, pump-out, laundry
+- [ ] **SETL-02**: Settlement shows itemized charges: nightly rate x nights, fuel, showers, power, pump-out, laundry
 - [ ] **SETL-03**: Settlement shows running total
 - [ ] **SETL-04**: Staff can complete settlement which releases the slip and marks the stay as completed
 - [ ] **SETL-05**: Completed stays are archived with full charge history
@@ -80,7 +80,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Design Compliance
 
-- [ ] **DSGN-01**: UI follows dispatch board paradigm — no sidebar, no tabs, no stat cards
+- [ ] **DSGN-01**: UI follows dispatch board paradigm -- no sidebar, no tabs, no stat cards
 - [ ] **DSGN-02**: Color palette matches design spec (navy, ocean, teal, sand, rope, coral, slate, fog)
 - [ ] **DSGN-03**: Typography uses DM Sans for headings, Inter for body, JetBrains Mono for credentials
 - [ ] **DSGN-04**: All pre-generated SVG/PNG assets from public/assets/ are used as documented
@@ -128,63 +128,63 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | — | Pending |
-| AUTH-02 | — | Pending |
-| AUTH-03 | — | Pending |
-| AUTH-04 | — | Pending |
-| SLIP-01 | — | Pending |
-| SLIP-02 | — | Pending |
-| SLIP-03 | — | Pending |
-| SLIP-04 | — | Pending |
-| BOARD-01 | — | Pending |
-| BOARD-02 | — | Pending |
-| BOARD-03 | — | Pending |
-| BOARD-04 | — | Pending |
-| BOARD-05 | — | Pending |
-| CHKIN-01 | — | Pending |
-| CHKIN-02 | — | Pending |
-| CHKIN-03 | — | Pending |
-| CHKIN-04 | — | Pending |
-| CHKIN-05 | — | Pending |
-| CHKIN-06 | — | Pending |
-| AMEN-01 | — | Pending |
-| AMEN-02 | — | Pending |
-| AMEN-03 | — | Pending |
-| AMEN-04 | — | Pending |
-| AMEN-05 | — | Pending |
-| AMEN-06 | — | Pending |
-| AMEN-07 | — | Pending |
-| SETL-01 | — | Pending |
-| SETL-02 | — | Pending |
-| SETL-03 | — | Pending |
-| SETL-04 | — | Pending |
-| SETL-05 | — | Pending |
-| GUST-01 | — | Pending |
-| GUST-02 | — | Pending |
-| GUST-03 | — | Pending |
-| GUST-04 | — | Pending |
-| MNGR-01 | — | Pending |
-| MNGR-02 | — | Pending |
-| MNGR-03 | — | Pending |
-| MNGR-04 | — | Pending |
-| DEMO-01 | — | Pending |
-| DEMO-02 | — | Pending |
-| DEMO-03 | — | Pending |
-| DEMO-04 | — | Pending |
-| DEMO-05 | — | Pending |
-| DSGN-01 | — | Pending |
-| DSGN-02 | — | Pending |
-| DSGN-03 | — | Pending |
-| DSGN-04 | — | Pending |
-| DSGN-05 | — | Pending |
-| DSGN-06 | — | Pending |
-| DSGN-07 | — | Pending |
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Pending |
+| SLIP-01 | Phase 1 | Pending |
+| SLIP-02 | Phase 1 | Pending |
+| SLIP-03 | Phase 2 | Pending |
+| SLIP-04 | Phase 1 | Pending |
+| BOARD-01 | Phase 2 | Pending |
+| BOARD-02 | Phase 2 | Pending |
+| BOARD-03 | Phase 2 | Pending |
+| BOARD-04 | Phase 2 | Pending |
+| BOARD-05 | Phase 2 | Pending |
+| CHKIN-01 | Phase 2 | Pending |
+| CHKIN-02 | Phase 2 | Pending |
+| CHKIN-03 | Phase 2 | Pending |
+| CHKIN-04 | Phase 2 | Pending |
+| CHKIN-05 | Phase 2 | Pending |
+| CHKIN-06 | Phase 2 | Pending |
+| AMEN-01 | Phase 3 | Pending |
+| AMEN-02 | Phase 3 | Pending |
+| AMEN-03 | Phase 3 | Pending |
+| AMEN-04 | Phase 3 | Pending |
+| AMEN-05 | Phase 3 | Pending |
+| AMEN-06 | Phase 3 | Pending |
+| AMEN-07 | Phase 3 | Pending |
+| SETL-01 | Phase 3 | Pending |
+| SETL-02 | Phase 3 | Pending |
+| SETL-03 | Phase 3 | Pending |
+| SETL-04 | Phase 3 | Pending |
+| SETL-05 | Phase 3 | Pending |
+| GUST-01 | Phase 3 | Pending |
+| GUST-02 | Phase 3 | Pending |
+| GUST-03 | Phase 3 | Pending |
+| GUST-04 | Phase 3 | Pending |
+| MNGR-01 | Phase 4 | Pending |
+| MNGR-02 | Phase 4 | Pending |
+| MNGR-03 | Phase 4 | Pending |
+| MNGR-04 | Phase 4 | Pending |
+| DEMO-01 | Phase 1 | Pending |
+| DEMO-02 | Phase 1 | Pending |
+| DEMO-03 | Phase 1 | Pending |
+| DEMO-04 | Phase 1 | Pending |
+| DEMO-05 | Phase 1 | Pending |
+| DSGN-01 | Phase 1 | Pending |
+| DSGN-02 | Phase 1 | Pending |
+| DSGN-03 | Phase 1 | Pending |
+| DSGN-04 | Phase 1 | Pending |
+| DSGN-05 | Phase 1 | Pending |
+| DSGN-06 | Phase 3 | Pending |
+| DSGN-07 | Phase 1 | Pending |
 
 **Coverage:**
 - v1 requirements: 50 total
-- Mapped to phases: 0
-- Unmapped: 50 ⚠️
+- Mapped to phases: 50
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-28*
-*Last updated: 2026-03-28 after initial definition*
+*Last updated: 2026-03-28 after roadmap creation*
