@@ -63,7 +63,7 @@ Plans:
   3. Staff can open a settlement panel for departing guests showing itemized charges (nightly rate, fuel, showers, power, pump-out, laundry) with a running total
   4. Completing settlement releases the slip, archives the stay with full charge history, and removes the guest from the board
   5. Guest logs in and sees a mobile-friendly portal with slip assignment, credentials in large readable text, current charges, and guest-welcome.png header
-**Plans:** 3 plans
+**Plans:** 1/3 plans executed
 
 Plans:
 - [ ] 03-01-PLAN.md — Guest detail slide-over panel with amenity logging (shower, fuel, power, pump-out, laundry)
@@ -94,5 +94,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation | 0/3 | Complete    | 2026-03-28 |
 | 2. Dispatch Board & Check-In | 3/3 | Complete | 2026-03-28 |
-| 3. Guest Lifecycle | 0/3 | Not started | - |
+| 3. Guest Lifecycle | 1/3 | In Progress|  |
 | 4. Manager Views | 0/2 | Not started | - |

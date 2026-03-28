@@ -58,10 +58,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Guest Portal
 
-- [ ] **GUST-01**: Guest sees a single-column "My Stay" page with their slip assignment
-- [ ] **GUST-02**: Guest sees credentials (gate code, Wi-Fi password, shower tokens remaining) in large readable text
-- [ ] **GUST-03**: Guest sees current charges and running total
-- [ ] **GUST-04**: Guest portal is mobile-friendly with large text and high contrast
+- [x] **GUST-01**: Guest sees a single-column "My Stay" page with their slip assignment
+- [x] **GUST-02**: Guest sees credentials (gate code, Wi-Fi password, shower tokens remaining) in large readable text
+- [x] **GUST-03**: Guest sees current charges and running total
+- [x] **GUST-04**: Guest portal is mobile-friendly with large text and high contrast
 
 ### Manager View
 
@@ -85,7 +85,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **DSGN-03**: Typography uses DM Sans for headings, Inter for body, JetBrains Mono for credentials
 - [x] **DSGN-04**: All pre-generated SVG/PNG assets from public/assets/ are used as documented
 - [x] **DSGN-05**: Login screen uses hero-marina.png as full-bleed background
-- [ ] **DSGN-06**: Guest portal uses guest-welcome.png as header illustration
+- [x] **DSGN-06**: Guest portal uses guest-welcome.png as header illustration
 - [x] **DSGN-07**: Responsive design works on desktop and mobile
 
 ## v2 Requirements
@@ -159,10 +159,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SETL-03 | Phase 3 | Pending |
 | SETL-04 | Phase 3 | Pending |
 | SETL-05 | Phase 3 | Pending |
-| GUST-01 | Phase 3 | Pending |
-| GUST-02 | Phase 3 | Pending |
-| GUST-03 | Phase 3 | Pending |
-| GUST-04 | Phase 3 | Pending |
+| GUST-01 | Phase 3 | Complete |
+| GUST-02 | Phase 3 | Complete |
+| GUST-03 | Phase 3 | Complete |
+| GUST-04 | Phase 3 | Complete |
 | MNGR-01 | Phase 4 | Pending |
 | MNGR-02 | Phase 4 | Pending |
 | MNGR-03 | Phase 4 | Pending |
@@ -177,7 +177,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DSGN-03 | Phase 1 | Complete |
 | DSGN-04 | Phase 1 | Complete |
 | DSGN-05 | Phase 1 | Complete |
-| DSGN-06 | Phase 3 | Pending |
+| DSGN-06 | Phase 3 | Complete |
 | DSGN-07 | Phase 1 | Complete |
 
 **Coverage:**
