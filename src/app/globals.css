@@ -7,9 +7,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-body);
+  --font-mono: "JetBrains Mono", monospace;
+  --font-heading: "DM Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,6 +47,16 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Design spec color tokens */
+  --color-navy: #0F2B46;
+  --color-ocean: #1B6FA8;
+  --color-teal: #0D9488;
+  --color-sand: #F5F0E8;
+  --color-rope: #C4883A;
+  --color-coral: #DC4A3F;
+  --color-slate: #64748B;
+  --color-fog: #E2E8F0;
 }
 
 :root {
