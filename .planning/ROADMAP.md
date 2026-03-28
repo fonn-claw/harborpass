@@ -12,7 +12,7 @@ HarborPass delivers a marina dispatch board in four phases: first the foundation
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Schema, authentication, seed data, and design system
+- [x] **Phase 1: Foundation** - Schema, authentication, seed data, and design system (completed 2026-03-28)
 - [ ] **Phase 2: Dispatch Board & Check-In** - Three-column board, dock strip, and 3-step check-in wizard
 - [ ] **Phase 3: Guest Lifecycle** - Amenity logging, settlement/checkout, and guest portal
 - [ ] **Phase 4: Manager Views** - Occupancy analytics, revenue reporting, pricing config, and guest history
@@ -29,7 +29,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Login screen displays hero-marina.png as full-bleed background with correct typography and color palette
   4. Database contains 20 transient slips with dimensions, 12 occupied stays, 3 arriving today, 2 departing, 3 demo accounts, and 2 months of guest history
   5. Application renders with dispatch board layout (no sidebar, no tabs), correct fonts (DM Sans, Inter, JetBrains Mono), and design spec colors
-**Plans:** 3 plans
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 01-01-PLAN.md — Scaffold Next.js 15, Tailwind v4 theme, Drizzle schema, shadcn/ui, top bar layout
@@ -92,7 +92,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/3 | Not started | - |
+| 1. Foundation | 0/3 | Complete    | 2026-03-28 |
 | 2. Dispatch Board & Check-In | 0/3 | Not started | - |
 | 3. Guest Lifecycle | 0/3 | Not started | - |
 | 4. Manager Views | 0/2 | Not started | - |
