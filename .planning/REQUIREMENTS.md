@@ -16,10 +16,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Slips & Vessels
 
-- [ ] **SLIP-01**: System stores 20 transient slips with dimensions (max LOA, max beam, water depth)
-- [ ] **SLIP-02**: Each slip has a status (available, occupied, departing-today, maintenance)
+- [x] **SLIP-01**: System stores 20 transient slips with dimensions (max LOA, max beam, water depth)
+- [x] **SLIP-02**: Each slip has a status (available, occupied, departing-today, maintenance)
 - [ ] **SLIP-03**: Slip assignment filters by vessel dimensions (LOA, beam, draft must fit)
-- [ ] **SLIP-04**: Only one active stay can occupy a slip at a time
+- [x] **SLIP-04**: Only one active stay can occupy a slip at a time
 
 ### Dispatch Board
 
@@ -80,13 +80,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Design Compliance
 
-- [ ] **DSGN-01**: UI follows dispatch board paradigm -- no sidebar, no tabs, no stat cards
-- [ ] **DSGN-02**: Color palette matches design spec (navy, ocean, teal, sand, rope, coral, slate, fog)
-- [ ] **DSGN-03**: Typography uses DM Sans for headings, Inter for body, JetBrains Mono for credentials
-- [ ] **DSGN-04**: All pre-generated SVG/PNG assets from public/assets/ are used as documented
+- [x] **DSGN-01**: UI follows dispatch board paradigm -- no sidebar, no tabs, no stat cards
+- [x] **DSGN-02**: Color palette matches design spec (navy, ocean, teal, sand, rope, coral, slate, fog)
+- [x] **DSGN-03**: Typography uses DM Sans for headings, Inter for body, JetBrains Mono for credentials
+- [x] **DSGN-04**: All pre-generated SVG/PNG assets from public/assets/ are used as documented
 - [ ] **DSGN-05**: Login screen uses hero-marina.png as full-bleed background
 - [ ] **DSGN-06**: Guest portal uses guest-welcome.png as header illustration
-- [ ] **DSGN-07**: Responsive design works on desktop and mobile
+- [x] **DSGN-07**: Responsive design works on desktop and mobile
 
 ## v2 Requirements
 
@@ -132,10 +132,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-02 | Phase 1 | Pending |
 | AUTH-03 | Phase 1 | Pending |
 | AUTH-04 | Phase 1 | Pending |
-| SLIP-01 | Phase 1 | Pending |
-| SLIP-02 | Phase 1 | Pending |
+| SLIP-01 | Phase 1 | Complete |
+| SLIP-02 | Phase 1 | Complete |
 | SLIP-03 | Phase 2 | Pending |
-| SLIP-04 | Phase 1 | Pending |
+| SLIP-04 | Phase 1 | Complete |
 | BOARD-01 | Phase 2 | Pending |
 | BOARD-02 | Phase 2 | Pending |
 | BOARD-03 | Phase 2 | Pending |
@@ -172,13 +172,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DEMO-03 | Phase 1 | Pending |
 | DEMO-04 | Phase 1 | Pending |
 | DEMO-05 | Phase 1 | Pending |
-| DSGN-01 | Phase 1 | Pending |
-| DSGN-02 | Phase 1 | Pending |
-| DSGN-03 | Phase 1 | Pending |
-| DSGN-04 | Phase 1 | Pending |
+| DSGN-01 | Phase 1 | Complete |
+| DSGN-02 | Phase 1 | Complete |
+| DSGN-03 | Phase 1 | Complete |
+| DSGN-04 | Phase 1 | Complete |
 | DSGN-05 | Phase 1 | Pending |
 | DSGN-06 | Phase 3 | Pending |
-| DSGN-07 | Phase 1 | Pending |
+| DSGN-07 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 50 total
