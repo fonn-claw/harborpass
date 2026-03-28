@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -68,34 +67,11 @@ const legendItems = [
 ];
 
 export function DockStrip({ slips, onSlipClick }: DockStripProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [showLeftFade, setShowLeftFade] = useState(false);
-  const [showRightFade, setShowRightFade] = useState(false);
-
-  const checkOverflow = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setShowLeftFade(el.scrollLeft > 4);
-    setShowRightFade(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
-  }, []);
-
-  useEffect(() => {
-    checkOverflow();
-    const el = scrollRef.current;
-    if (!el) return;
-    el.addEventListener("scroll", checkOverflow, { passive: true });
-    window.addEventListener("resize", checkOverflow);
-    return () => {
-      el.removeEventListener("scroll", checkOverflow);
-      window.removeEventListener("resize", checkOverflow);
-    };
-  }, [checkOverflow]);
-
   const sorted = sortSlipsNumerically(slips);
 
   return (
     <TooltipProvider delay={200}>
-      <div className="bg-white border-b border-fog px-4 py-3 relative">
+      <div className="bg-white border-b border-fog px-4 py-3">
         <div className="flex items-center justify-between mb-2">
           <span className="text-[11px] font-medium text-slate uppercase tracking-wide">
             Transient Slips
@@ -112,19 +88,11 @@ export function DockStrip({ slips, onSlipClick }: DockStripProps) {
           </div>
         </div>
 
-        {/* Left overflow fade */}
-        {showLeftFade && (
-          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        )}
-
-        <div
-          ref={scrollRef}
-          className="flex items-center gap-1 overflow-x-auto scrollbar-hide"
-        >
+        <div className="flex flex-wrap gap-1">
           {sorted.map((slip) => (
             <Tooltip key={slip.id}>
               <TooltipTrigger
-                className={`shrink-0 w-10 h-7 rounded flex items-center justify-center font-mono text-[10px] font-medium transition-colors hover:opacity-80 cursor-pointer ${slipStyle(slip)}`}
+                className={`w-10 h-7 rounded flex items-center justify-center font-mono text-[10px] font-medium transition-colors hover:opacity-80 cursor-pointer ${slipStyle(slip)}`}
                 onClick={() => onSlipClick?.(slip)}
               >
                 {slip.name}
@@ -135,11 +103,6 @@ export function DockStrip({ slips, onSlipClick }: DockStripProps) {
             </Tooltip>
           ))}
         </div>
-
-        {/* Right overflow fade */}
-        {showRightFade && (
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-        )}
       </div>
     </TooltipProvider>
   );
